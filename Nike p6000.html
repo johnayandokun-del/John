@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <div class="logo">
+  <a href="My website.html" style="text-decoration:none; color:inherit;"></a>
+</div>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #111;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-right: 30px;
+    }
+    .search-bar input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 300px;
+    }
+    .auth {
+      display: flex;
+      gap: 15px;
+    }
+    .auth button {
+      padding: 8px 16px;
+      border: 1px solid #111;
+      background: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .auth button.signup {
+      background: #111;
+      color: white;
+    }
+    .auth button:hover {
+      opacity: 0.85;
+    }
+
+    /* NAVIGATION BAR */
+    nav {
+      display: flex;
+      gap: 20px;
+      font-weight: 600;
+      justify-content: center;
+      background: #f6f6f6;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    nav > div {
+      position: relative;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+    nav > div:hover .dropdown {
+      display: flex;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      min-width: 700px;
+      z-index: 999;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .dropdown-section {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .dropdown-section h4 {
+      margin: 0 0 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    .dropdown-section a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.85rem;
+    }
+    .dropdown-section a:hover {
+      text-decoration: underline;
+    }
+
+    /* PRODUCT DETAIL SECTION */
+    .container {
+      display: flex;
+      max-width: 1100px;
+      margin: 30px auto;
+      gap: 40px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    .image-section {
+      flex: 1;
+      display: flex;
+      gap: 15px;
+    }
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .thumbnails img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .thumbnails img.active {
+      border-color: black;
+    }
+    .main-image img {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 12px;
+    }
+    .details-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .price {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+    .sizes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .size-option {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .size-option:hover,
+    .size-option.active {
+      background: black;
+      color: white;
+      border-color: black;
+    }
+    .add-to-bag {
+      background: black;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s ease;
+    }
+    .add-to-bag:hover {
+      background: #333;
+    }
+    .favourite {
+      background: none;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+   <div class="logo"><a href="My website.html" style="text-decoration:none; color:inherit;">John Shoes</a></div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for brand, color, etc.">
+    </div>
+    <div class="auth">
+      <button>Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+<nav>
+    <div>Brands
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>All Brands</h4>
+          <a href="#">A B C D E</a>
+          <a href="#">F G H I J</a>
+          <a href="#">K L M N O</a>
+          <a href="#">P Q R S T</a>
+          <a href="#">U V W X Y Z</a>
+        </div>
+        <div class="dropdown-section">
+          <h4>Top Brands</h4>
+          <a href="#">Nike</a>
+          <a href="#">Adidas</a>
+          <a href="#">New Balance</a>
+          <a href="#">ASICS</a>
+          <a href="#">Puma</a>
+        </div>
+        <div class="dropdown-section">
+          <h4>Trending Brands</h4>
+          <a href="#">Louis Vuitton</a>
+          <a href="#">Gucci</a>
+          <a href="#">Balenciaga</a>
+          <a href="#">Supreme</a>
+          <a href="#">Vans</a>
+        </div>
+      </div>
+    </div>
+
+    <div>Trending
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Popular Now</h4>
+          <a href="#">Jordan 1</a>
+          <a href="#">Nike Dunks</a>
+          <a href="#">Yeezy</a>
+          <a href="#">Crocs</a>
+          <a href="#">Converse</a>
+        </div>
+      </div>
+    </div>
+
+    <div>New
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Latest Drops</h4>
+          <a href="#">Sneakers</a>
+          <a href="#">Apparel</a>
+          <a href="#">Accessories</a>
+        </div>
+      </div>
+    </div>
+
+    <div>Deals
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Special Offers</h4>
+          <a href="#">Under £100</a>
+          <a href="#">Clearance</a>
+          <a href="#">Bundles</a>
+        </div>
+      </div>
+    </div>
+
+    <div>Men
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Shoes</h4>
+          <a href="#">Sneakers</a>
+          <a href="#">Boots</a>
+          <a href="#">Running</a>
+        </div>
+        <div class="dropdown-section">
+          <h4>Clothing</h4>
+          <a href="#">T-Shirts</a>
+          <a href="#">Hoodies</a>
+          <a href="#">Jackets</a>
+        </div>
+      </div>
+    </div>
+
+    <div>Women
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Shoes</h4>
+          <a href="#">Sneakers</a>
+          <a href="#">Heels</a>
+          <a href="#">Running</a>
+        </div>
+        <div class="dropdown-section">
+          <h4>Clothing</h4>
+          <a href="#">Tops</a>
+          <a href="#">Dresses</a>
+          <a href="#">Jackets</a>
+        </div>
+      </div>
+    </div>
+
+    <div>Kids
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Boys</h4>
+          <a href="#">Shoes</a>
+          <a href="#">Apparel</a>
+        </div>
+        <div class="dropdown-section">
+          <h4>Girls</h4>
+          <a href="#">Shoes</a>
+          <a href="#">Apparel</a>
+        </div>
+      </div>
+    </div>
+
+    <div>Sneakers
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Categories</h4>
+          <a href="#">Basketball</a>
+          <a href="#">Running</a>
+          <a href="#">Lifestyle</a>
+        </div>
+      </div>
+    </div>
+
+    <div>Apparel
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Categories</h4>
+          <a href="#">T-Shirts</a>
+          <a href="#">Hoodies</a>
+          <a href="#">Jackets</a>
+        </div>
+      </div>
+    </div>
+
+    <div>Accessories
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Categories</h4>
+          <a href="#">Hats</a>
+          <a href="#">Bags</a>
+          <a href="#">Watches</a>
+        </div>
+      </div>
+    </div>
+
+    <div>More Categories
+      <div class="dropdown">
+        <div class="dropdown-section">
+          <h4>Other</h4>
+          <a href="#">Collectibles</a>
+          <a href="#">Electronics</a>
+          <a href="#">Limited Editions</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- PRODUCT DETAIL -->
+  <div class="container">
+    <!-- LEFT IMAGES -->
+    <div class="image-section">
+      <div class="thumbnails">
+        <img src="https://i8.amplience.net/i/jpl/jd_689134_a?qlt=92&w=950&h=673&v=1&fmt=auto" class="active" onclick="changeImage(this)">
+        <img src="https://i8.amplience.net/i/jpl/jd_689134_b?qlt=92&w=950&h=673&v=1&fmt=auto" onclick="changeImage(this)">
+        <img src="https://i8.amplience.net/i/jpl/jd_689134_c?qlt=92&w=950&h=673&v=1&fmt=auto" onclick="changeImage(this)"> 
+        <img src="https://i8.amplience.net/i/jpl/jd_689134_d?qlt=92&w=950&h=673&v=1&fmt=auto" onclick="changeImage(this)">
+        <img src="https://i8.amplience.net/i/jpl/jd_689134_e?qlt=92&w=950&h=673&v=1&fmt=auto" onclick="changeImage(this)">
+        <img src="https://i8.amplience.net/i/jpl/jd_689134_f?qlt=92&w=950&h=673&v=1&fmt=auto" onclick="changeImage(this)">
+      </div>
+      <div class="main-image">
+        <img id="mainShoe" src="https://i8.amplience.net/i/jpl/jd_689134_b?qlt=92&w=950&h=673&v=1&fmt=auto" alt="Nike Air Force 1">
+      </div>
+    </div>
+
+    <!-- RIGHT DETAILS -->
+    <div class="details-section">
+      <h2>Nike P-6000</h2>
+      <p class="price">110.00</p>
+      <p>Fits large; we recommend ordering half a size down</p>
+
+      <!-- SIZE GRID -->
+      <div class="sizes">
+        <div class="size-option" onclick="selectSize(this)">UK 5</div>
+        <div class="size-option" onclick="selectSize(this)">UK 6</div>
+        <div class="size-option" onclick="selectSize(this)">UK 7</div>
+        <div class="size-option" onclick="selectSize(this)">UK 7.5</div>
+        <div class="size-option" onclick="selectSize(this)">UK 8</div>
+        <div class="size-option" onclick="selectSize(this)">UK 8.5</div>
+        <div class="size-option" onclick="selectSize(this)">UK 9</div>
+        <div class="size-option" onclick="selectSize(this)">UK 9.5</div>
+        <div class="size-option" onclick="selectSize(this)">UK 10</div>
+        <div class="size-option" onclick="selectSize(this)">UK 10.5</div>
+        <div class="size-option" onclick="selectSize(this)">UK 11</div>
+        <div class="size-option" onclick="selectSize(this)">UK 11.5</div> 
+      </div>
+
+      <!-- BUTTONS -->
+      <button class="add-to-bag" onclick="addToCart()">Add to Bag</button>
+      <button class="favourite">♡ Favourite</button>
+
+      <p style="color: gray; font-size: 0.85rem;">This product is excluded from site promotions and discounts.</p>
+    </div>
+  <script>
+    function changeImage(img) {
+      document.getElementById('mainShoe').src = img.src;
+      document.querySelectorAll('.thumbnails img').forEach(el => el.classList.remove('active'));
+      img.classList.add('active');
+    }
+
+    function selectSize(element) {
+      document.querySelectorAll('.size-option').forEach(size => size.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    function addToCart() {
+      const selectedSize = document.querySelector('.size-option.active');
+      if (!selectedSize) {
+        alert("Please select a size before adding to bag.");
+        return;
+      }
+      alert(`Nike Air Force 1 (Size: ${selectedSize.innerText}) has been added to your bag!`);
+    }
+  </script>
+
+</body>
+</html>
